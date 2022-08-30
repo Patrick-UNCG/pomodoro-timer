@@ -1,0 +1,90 @@
+body{
+  font-family: 'Jura', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  background: #051923;
+  color:white;
+}
+#container{
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.time-sets{
+  display:grid;
+  grid-template-columns: 50px 200px 50px;
+  justify-items:center;
+  align-items:center;
+  padding:3px;
+}
+
+#adjustor-container{
+  display:flex;
+  align-items:center;
+  text-align:center;
+}
+
+button{
+  align-items: center;
+  appearance: none;
+  background-color: #00A6FB;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#003554 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+button:focus {
+  box-shadow: #051923 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #003554 0 -3px 0 inset;
+}
+
+button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #003554 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: #003554 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+#time-left{
+  margin-top:0;
+  font-size:55px;
+}
+
+#timer-label{
+  font-size:30px;
+}
+
+#reset{
+  margin-left:5px;
+}
+
+#session-label{
+  margin-left:5px;
+}
