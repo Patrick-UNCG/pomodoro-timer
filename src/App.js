@@ -2,6 +2,11 @@
 import './App.css';
 import React from 'react';
 import Adjustors from './Adjustors';
+import pipesound from './sounds/pipesound.mp3';
+import augh from './sounds/augh.mp3'
+import draft from './sounds/draft.mp3'
+import fbi from './sounds/FBI.mp3'
+import windows from './sounds/windows.mp3'
 
 function App(){
   const [timeDisplay, setTimeDisplay] = React.useState(25*60)
@@ -9,6 +14,14 @@ function App(){
   const [sessionTime, setSessionTime] = React.useState(25*60)
   const [timerOn, setTimerOn] = React.useState(false)
   const [onBreak, setOnBreak] = React.useState(false)
+  const soundOptions = [
+    {name:"Beep", value:"https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"},
+    {name:"Pipesound", value:pipesound},
+    {name:"Augh", value:augh},
+    {name:"NBA Draft", value:draft},
+    {name:"FBI", value:fbi},
+    {name:"Windows Start Sound", value:windows}] 
+  const [sound, setSound]= React.useState(soundOptions[1].value)
   
   
   function formatTime(time){
@@ -99,6 +112,7 @@ function App(){
   function playBeep(){
     
     const beepElement= document.getElementById("beep")
+    beepElement.volume = 0.2;
     beepElement.currentTime = 0;
     beepElement.play();
   }
@@ -123,10 +137,22 @@ function App(){
       <h3 id="timer-label">{onBreak ? "Break" : "Session"}</h3>
       <h1 id="time-left">{formatTime(timeDisplay)}</h1>
       <div id="button-container">
-        <button id="start_stop" onClick={controlTime}>{timerOn ?        (<span><i class="fa-solid fa-circle-pause"></i></span>) : (<span><i class="fa-solid fa-circle-play"></i></span>)}</button>
-        <button id="reset" onClick={resetTime}><i class="fa-solid fa-rotate-right"></i></button>
+        <button id="start_stop" onClick={controlTime}>{timerOn ? (<span><i className="fa-solid fa-circle-pause"></i></span>) : (<span><i className="fa-solid fa-circle-play"></i></span>)}</button>
+        <button id="reset" onClick={resetTime}><i className="fa-solid fa-rotate-right"></i></button>
       </div>
-      <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"/>
+      <audio id="beep" src={sound}/>
+      <div>
+      <h3>Sound Selection</h3>
+      <select
+        id="sound-options"
+        onChange={(e) => setSound(e.target.value)}
+        defaultValue={sound}
+      >
+        {soundOptions.map((option, idx) => (
+          <option key={idx} value={option.value}>{option.name}</option>
+        ))}
+      </select>
+    </div>
     </div>
   )
 }
