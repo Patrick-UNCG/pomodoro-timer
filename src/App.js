@@ -21,7 +21,7 @@ function App(){
     {name:"NBA Draft", value:draft},
     {name:"FBI", value:fbi},
     {name:"Windows Start Sound", value:windows}] 
-  const [sound, setSound]= React.useState(soundOptions[1].value)
+  const [sound, setSound]= React.useState(soundOptions[0].value)
   
   
   function formatTime(time){
@@ -117,7 +117,10 @@ function App(){
     beepElement.play();
   }
   return (
+    
     <div id="container">
+      <h1 id="title">Pomodoro Timer</h1>
+      <h4 id="subheading">(With funny meme sounds!)</h4>
       <div id="adjustor-container">
         <Adjustors 
         id="break-label" 
@@ -153,7 +156,11 @@ function App(){
         ))}
       </select>
     </div>
+      <div className="footer">
+        <a href="https://github.com/Patrick-UNCG/pomodoro-timer"><i id="github-link" class="fa-brands fa-github"></i></a>
+      </div>
     </div>
+
   )
 }
 
