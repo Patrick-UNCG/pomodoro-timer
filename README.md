@@ -1,1 +1,1 @@
-###A pomodoro-timer created using ReactJS libary. Options to change the timer sound to a variety of meme sounds.
+### A pomodoro-timer created using ReactJS libary. Options to change the timer sound to a variety of meme sounds.
